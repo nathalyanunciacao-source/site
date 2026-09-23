@@ -33,6 +33,7 @@
         <a href="servicos.html">Serviços</a>
         <a href="galeria.html">Galeria</a>
         <a href="contato.html">Contato</a>
+        <a href="carrinho.html">Carrinho</a>
     </nav>
 
     <main>
@@ -68,28 +69,20 @@
         <p>© 2026 Galeria de Arte. Todos os direitos reservados.</p>
     </footer>
 
-<script>
-        // Seleciona todos os botões com a classe 'botao-comprar'
-        const botoesComprar = document.querySelectorAll('.botao-comprar');
-
-        botoesComprar.forEach(botao => {
+    <script>
+        document.querySelectorAll('.botao-comprar').forEach(botao => {
             botao.addEventListener('click', (event) => {
-                // Captura as informações do produto clicado
                 const cartao = event.target.closest('.cartao-pintura');
                 const produto = {
                     nome: cartao.querySelector('h3').innerText,
                     preco: cartao.querySelector('.preco').innerText,
                     imagem: cartao.querySelector('img').src
                 };
-
-                // Salva o produto no armazenamento do navegador
                 localStorage.setItem('produtoSelecionado', JSON.stringify(produto));
-
-                // Redireciona para a página do carrinho
                 window.location.href = 'carrinho.html';
             });
         });
     </script>
+
 </body>
 </html>
-
