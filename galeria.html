@@ -32,6 +32,7 @@
         <a href="servicos.html">Serviços</a>
         <a href="galeria.html">Galeria</a>
         <a href="contato.html">Contato</a>
+        <a href="carrinho.html">Carrinho</a>
     </nav>
 
     <main>
@@ -39,7 +40,6 @@
         <p>Confira todas as nossas obras exclusivas disponíveis para venda:</p>
 
         <div class="grid-pinturas">
-           
             <div class="cartao-pintura">
                 <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=500" alt="Pintura Colorida Abstrata">
                 <h3>Explosão Abstrata</h3>
@@ -123,7 +123,6 @@
                 <p class="preco">R$ 680,00</p>
                 <button class="botao-comprar">Comprar</button>
             </div>
-
         </div>
     </main>
 
@@ -131,28 +130,20 @@
         <p>© 2026 Galeria de Arte. Todos os direitos reservados.</p>
     </footer>
 
-<script>
-        // Seleciona todos os botões com a classe 'botao-comprar'
-        const botoesComprar = document.querySelectorAll('.botao-comprar');
-
-        botoesComprar.forEach(botao => {
+    <script>
+        document.querySelectorAll('.botao-comprar').forEach(botao => {
             botao.addEventListener('click', (event) => {
-                // Captura as informações do produto clicado
                 const cartao = event.target.closest('.cartao-pintura');
                 const produto = {
                     nome: cartao.querySelector('h3').innerText,
                     preco: cartao.querySelector('.preco').innerText,
                     imagem: cartao.querySelector('img').src
                 };
-
-                // Salva o produto no armazenamento do navegador
                 localStorage.setItem('produtoSelecionado', JSON.stringify(produto));
-
-                // Redireciona para a página do carrinho
                 window.location.href = 'carrinho.html';
             });
         });
     </script>
+
 </body>
 </html>
-
